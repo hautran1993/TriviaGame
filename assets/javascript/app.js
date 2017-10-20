@@ -16,7 +16,7 @@ $(document).ready(function(){
 $("#trivia-questions").hide();
 $("#questions-results").hide();
 	var questions = [{
-		    question: "Who was 'Micheal Myers' first victim at age 6??",
+		    question: "Who was 'Micheal Myers' first victim at age of 6??",
 		    choices: ["His Mother", "His Sister","His Teacher", "The Town Sheriff"],
 		    answer: 1,
 		},{
@@ -98,7 +98,7 @@ $("#questions-results").hide();
 //timer function
 	function qTimer() {
 		timer--;
-		$("#timer").html(timer)
+		$("#timer").html("Time Remaining: " + " " + timer)
 		if (timer === 0){
 			i++;
 			$("#timer").html(timer)

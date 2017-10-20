@@ -43,11 +43,34 @@ body {
 
 }
 
-#btn0:hover, #btn1:hover, #btn2:hover, #btn3:hover {
+.answer-data:hover {
 	cursor: pointer;
-	background-color: yellow; 
+	background-color: red; 
 }
 
-#btn0:focus, #btn1:focus, #btn2:focus, #btn3:focus {
+.answer-data:focus {
 	outline: 0;
 }
+
+#next-btn:hover {
+	cursor: pointer;
+	background-color: red; 
+}
+
+#next-btn:focus {
+	outline: 0;
+}
+
+#start-btn:hover {
+	cursor: pointer;
+	background-color: red; 
+}
+
+#start-btn:focus {
+	outline: 0;
+}
+
+
+
+
+
