@@ -63,7 +63,7 @@ $("#questions-results").hide();
 	function displayQuestions() {
 		$("#questions").html(questions[i].question);
 		$(".answers").empty()
-		timer=5
+		timer=30
 		for ( var j = 0; j < questions[i].choices.length; j++) {
 			var button = $("<button>");
 			button.html(questions[i].choices[j]);
@@ -71,29 +71,57 @@ $("#questions-results").hide();
 			button.attr("data-answer", questions[i].answer);
 			//should be last because you are adding to the page
 			$(".answers").append(button);
-
 		}
+			$(".answer-data").on("click",function(){
+			console.log("this");
+			});
+	}
+	$(".answer-data").on("click",function(){
+	grabResult();
+	});
+	function grabResult(){
+		var rAnswer= questions[i].answer
+		if(data-answer === rAnswer){
+			console.log("correct")
+		}
+		//log answer go into result page
+
+		//go to the next question
+		i++
+		//add one to the correct var
+		correct++	
+		console.log(rAnswer)
 	}
 	//next question function
 	function nextQ(){
 		var nButton=$("<button>");
-
 		i++;
 		displayQuestions()
-		timer=5;
+		timer=30;
 	}
 
 	$("#next-btn").on("click",function() {
 	nextQ();
 	});
+	function result(){
+ 		$("#start").hide();
+		$("#trivia-questions").hide();
+		$("#questions-results").show();
+ 	}
 
+	
 	function grabResult(){
-		$("answer").click(function(){
-
-		});
-		console.log(this)
-	}
-	grabResult()
+        var rAnswer= questions[i].answer
+        //log answer go into result page
+        //go to the next question
+        i++
+        //add one to the correct var
+        correct++   
+        console.log(rAnswer);
+    }
+	$("answer").click(function(){
+		grabResult()
+	});	
 
 //timer function
 	function qTimer() {
@@ -105,12 +133,10 @@ $("#questions-results").hide();
 				if(i >= questions.length){
 					console.log("game over")
 					//show result page when all of the questions are asked
-					$("#start").hide();
-					$("#trivia-questions").hide();
-					$("#questions-results").show();
+					result()
 				}
 			displayQuestions();
-			timer=5;
+			timer=30;
 		}
 	}
 	function answer(){
@@ -121,6 +147,7 @@ $("#questions-results").hide();
 	function stop(){
       clearInterval(intervalId);
  	}
+ 	
 	//-----time interval count down
 
 

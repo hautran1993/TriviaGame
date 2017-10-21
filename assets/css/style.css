@@ -12,7 +12,12 @@ body {
 	border-radius: 50px;
 	border: 2px solid blue;
 	opacity: .6;
-
+}
+#start-btn{
+	width: 150px;
+	position: relative;
+    left: 330px;
+    top: 150px;
 }
 
 .grid #trivia {
@@ -43,9 +48,10 @@ body {
 
 }
 
+
 .answer-data:hover {
 	cursor: pointer;
-	background-color: red; 
+	background-color: blue; 
 }
 
 .answer-data:focus {
@@ -54,7 +60,7 @@ body {
 
 #next-btn:hover {
 	cursor: pointer;
-	background-color: red; 
+	background-color: blue; 
 }
 
 #next-btn:focus {
@@ -63,7 +69,7 @@ body {
 
 #start-btn:hover {
 	cursor: pointer;
-	background-color: red; 
+	background-color: blue; 
 }
 
 #start-btn:focus {
