@@ -34,8 +34,9 @@ $("#questions-results").hide();
 			answer: 1,
 		},{
 			question: "In the movie 'saw', what part of the body did the character had to imputate to escape in the end?",
-			choices: ["His Left Hand", "His Left foot"," His Right Hand"," His Right foot"],
+			choices: ["His Left Hand", "His Left foot","His Right Hand","His Right foot"],
 			answer: 3,
+			//change this to the answer to answers in stead
 		}
 	];
 	var pageCount;
@@ -61,9 +62,9 @@ $("#questions-results").hide();
 
 //function to display questions [i] is to run through all of the questions for the global i variable
 	function displayQuestions() {
+		timer = 10
 		$("#questions").html(questions[i].question);
 		$(".answers").empty()
-		timer=30
 		for ( var j = 0; j < questions[i].choices.length; j++) {
 			var button = $("<button>");
 			button.html(questions[i].choices[j]);
@@ -72,53 +73,49 @@ $("#questions-results").hide();
 			//should be last because you are adding to the page
 			$(".answers").append(button);
 		}
-			$(".answer-data").on("click",function(){
-			console.log("this");
+			$(".answer-data").on("click",function() {
+				var answerC = $(this).text();
+				if (answerC === questions[i].choices[questions[i].answer]) {
+					correct++
+					$("#questions-results").append($("<h1>you got the right answer</h1>"));
+					result();
+				setTimeout(nextQ, 5000);
+				console.log(setTimeout)	
+				}else{
+					$("#questions-results").append($("<h1>you got the wrong answer</h1>"));
+					result();
+				setTimeout(nextQ, 5000);
+
+				}
+				console.log(questions[i].choices[questions[i].answer]);
+				console.log(answerC);
 			});
 	}
-	$(".answer-data").on("click",function(){
-	grabResult();
-	});
-	function grabResult(){
-		var rAnswer= questions[i].answer
-		if(data-answer === rAnswer){
-			console.log("correct")
-		}
+	//write a function to compare the user to the right answer
+	//get the value of the curent function using a for loop
+	//function that corresponse to the right answer
+	//using function if
+
 		//log answer go into result page
 
 		//go to the next question
-		i++
 		//add one to the correct var
-		correct++	
-		console.log(rAnswer)
-	}
 	//next question function
 	function nextQ(){
-		var nButton=$("<button>");
+		$("#questions-results").empty();
+		var nButton= $("<button>");
 		i++;
-		displayQuestions()
-		timer=30;
+		displayQuestions();
+		$("#trivia-questions").show();
+		$("#questions-results").hide();
 	}
 
-	$("#next-btn").on("click",function() {
-	nextQ();
-	});
+	$("#next-btn").on("click", nextQ);
 	function result(){
  		$("#start").hide();
 		$("#trivia-questions").hide();
 		$("#questions-results").show();
  	}
-
-	
-	function grabResult(){
-        var rAnswer= questions[i].answer
-        //log answer go into result page
-        //go to the next question
-        i++
-        //add one to the correct var
-        correct++   
-        console.log(rAnswer);
-    }
 	$("answer").click(function(){
 		grabResult()
 	});	
@@ -136,7 +133,6 @@ $("#questions-results").hide();
 					result()
 				}
 			displayQuestions();
-			timer=30;
 		}
 	}
 	function answer(){

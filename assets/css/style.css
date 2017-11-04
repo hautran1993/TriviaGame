@@ -13,6 +13,11 @@ body {
 	border: 2px solid blue;
 	opacity: .6;
 }
+#start {
+	position: relative;
+    top: 100px;
+}
+
 #start-btn{
 	width: 150px;
 	position: relative;
