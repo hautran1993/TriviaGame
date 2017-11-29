@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-//when "start" button is clicked 
+//when "start" button is clicked
 //1. a timeer of 30 seconds goes off
 //2. a question is on display for that one question
 //3. after clicking an answer it'll let the user know if the question answered was wrong or right
@@ -11,7 +11,7 @@ $(document).ready(function(){
 //click start over, it does not reload the page but "reset" the game instead.
 //good luck
 
-   
+
 //create var for array of questions
 $("#trivia-questions").hide();
 $("#questions-results").hide();
@@ -19,6 +19,7 @@ $("#questions-results").hide();
 		    question: "Who was 'Micheal Myers' first victim at age of 6??",
 		    choices: ["His Mother", "His Sister","His Teacher", "The Town Sheriff"],
 		    answer: 1,
+		    //use it as a string or chane it to actual answer "correct anser"
 		},{
 			question: "Ghostface's mask in Scream is based on a painting by which famous artist?",
 			choices: ["Edouard Manet", "Andy Warhol", "Edvard Munch", "Claude Monet"],
@@ -27,7 +28,7 @@ $("#questions-results").hide();
 			question: "What was used for blood in the movie 'Psycho'?",
 			choices: ["Catups", "Corn syrup and Food coloring"," Chocolate Syrup"," Real Blood"],
 			answer: 2,
-	
+
 		},{
 			question: "In the movie 'The Omen', who hangs themselves at Damien's fifth birthday party?",
 			choices: ["His brother"," His Nanny"," His Priest", "His Mother"],
@@ -36,7 +37,7 @@ $("#questions-results").hide();
 			question: "In the movie 'saw', what part of the body did the character had to imputate to escape in the end?",
 			choices: ["His Left Hand", "His Left foot","His Right Hand","His Right foot"],
 			answer: 3,
-			//change this to the answer to answers in stead
+
 		}
 	];
 	var pageCount;
@@ -45,6 +46,7 @@ $("#questions-results").hide();
 	var correct= 0
 	var incorrect= 0
 	var intervalId;
+	var game = false;
 //you have to display correct and incorrect to html 67-61
 //create a function to show result page after the last question
 
@@ -57,7 +59,6 @@ $("#questions-results").hide();
 			intervalId = setInterval(qTimer, 1000);
 		});
 	}
-
 	startGame();
 
 //function to display questions [i] is to run through all of the questions for the global i variable
@@ -80,7 +81,7 @@ $("#questions-results").hide();
 					$("#questions-results").append($("<h1>you got the right answer</h1>"));
 					result();
 				setTimeout(nextQ, 5000);
-				console.log(setTimeout)	
+				console.log(setTimeout)
 				}else{
 					$("#questions-results").append($("<h1>you got the wrong answer</h1>"));
 					result();
@@ -118,7 +119,7 @@ $("#questions-results").hide();
  	}
 	$("answer").click(function(){
 		grabResult()
-	});	
+	});
 
 //timer function
 	function qTimer() {
@@ -138,20 +139,20 @@ $("#questions-results").hide();
 	function answer(){
 		$("#questions").empty()
 
-	}	
+	}
 	//stop time
 	function stop(){
       clearInterval(intervalId);
  	}
- 	
+
 	//-----time interval count down
 
 
-	//-------------------------------------now grab the result when click on button 
+	//-------------------------------------now grab the result when click on button
 
-	
+
 //doesn't work
-	
+
 
 //when "start" button is clicked
 // function startGame(){
@@ -190,9 +191,3 @@ $("#questions-results").hide();
 
 
 });
-
-
-
-
-
-
