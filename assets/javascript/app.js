@@ -16,10 +16,10 @@ $(document).ready(function(){
 $("#trivia-questions").hide();
 $("#questions-results").hide();
 	var questions = [{
-		    question: "Who was 'Micheal Myers' first victim at age of 6??",
-		    choices: ["His Mother", "His Sister","His Teacher", "The Town Sheriff"],
-		    answer: 1,
-		    //use it as a string or chane it to actual answer "correct anser"
+	    question: "Who was 'Micheal Myers' first victim at age of 6??",
+	    choices: ["His Mother", "His Sister","His Teacher", "The Town Sheriff"],
+	    answer: 1,
+	    //use it as a string or chane it to actual answer "correct anser"
 		},{
 			question: "Ghostface's mask in Scream is based on a painting by which famous artist?",
 			choices: ["Edouard Manet", "Andy Warhol", "Edvard Munch", "Claude Monet"],
@@ -76,19 +76,20 @@ $("#questions-results").hide();
 		}
 			$(".answer-data").on("click",function() {
 				var answerC = $(this).text();
-				if (answerC === questions[i].choices[questions[i].answer]) {
+				var answers = questions[i].choices[questions[i].answer]
+				if (answerC === answers) {
 					correct++
 					$("#questions-results").append($("<h1>you got the right answer</h1>"));
 					result();
 				setTimeout(nextQ, 5000);
 				console.log(setTimeout)
 				}else{
-					$("#questions-results").append($("<h1>you got the wrong answer</h1>"));
+					$("#questions-results").html($("<h1>you got the wrong answer, the right answer is " + answers + "</h1>"));
 					result();
 				setTimeout(nextQ, 5000);
 
 				}
-				console.log(questions[i].choices[questions[i].answer]);
+				console.log(answers);
 				console.log(answerC);
 			});
 	}
@@ -144,6 +145,7 @@ $("#questions-results").hide();
 	function stop(){
       clearInterval(intervalId);
  	}
+});
 
 	//-----time interval count down
 
@@ -182,12 +184,3 @@ $("#questions-results").hide();
 // for(var timesRun = 0; timesRun < 4; timesRun++) {
 // 	console.log("hey whattsup");
 // }
-
-
-
-
-
-
-
-
-});
