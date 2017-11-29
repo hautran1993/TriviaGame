@@ -26,7 +26,7 @@ $("#questions-results").hide();
 			answer: 2,
 		},{
 			question: "What was used for blood in the movie 'Psycho'?",
-			choices: ["Catups", "Corn syrup and Food coloring"," Chocolate Syrup"," Real Blood"],
+			choices: ["Catups", "Food coloring"," Chocolate Syrup"," Real Blood"],
 			answer: 2,
 
 		},{
@@ -79,12 +79,12 @@ $("#questions-results").hide();
 				var answers = questions[i].choices[questions[i].answer]
 				if (answerC === answers) {
 					correct++
-					$("#questions-results").append($("<h1>you got the right answer</h1>"));
+					$("#questions-results").append($("<h1> you got the right answer</h1>"));
 					result();
 				setTimeout(nextQ, 5000);
 				console.log(setTimeout)
 				}else{
-					$("#questions-results").html($("<h1>you got the wrong answer, the right answer is " + answers + "</h1>"));
+					$("#questions-results").html($("<h1>Ooopsies the right answer is</h1>" + "\n<h1> " + answers + "</h1>"));
 					result();
 				setTimeout(nextQ, 5000);
 
@@ -106,10 +106,10 @@ $("#questions-results").hide();
 	function nextQ(){
 		$("#questions-results").empty();
 		var nButton= $("<button>");
-		i++;
 		displayQuestions();
 		$("#trivia-questions").show();
 		$("#questions-results").hide();
+		i++;
 	}
 
 	$("#next-btn").on("click", nextQ);
@@ -130,7 +130,7 @@ $("#questions-results").hide();
 			i++;
 			$("#timer").html(timer)
 				if(i >= questions.length){
-					console.log("game over")
+					$("#questions-results").html($("<h1>you got " + correct + " answers Correct!</h1>"))
 					//show result page when all of the questions are asked
 					result()
 				}
